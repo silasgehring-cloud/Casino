@@ -121,12 +121,12 @@ add_shortcode('fc_nav', function(){
     $roulette = site_url('/casino-roulette');
     $profile = site_url('/casino-profile');
     $leader = site_url('/casino-leaderboard');
-    return "<nav style='margin:20px 0;text-align:center;font-size:18px;'>
-        <a href='{$home}'>🏠 Home</a> | 
-        <a href='{$coinflip}'>🎲 Coinflip</a> | 
-        <a href='{$slot}'>🎰 Slot</a> | 
-        <a href='{$roulette}'>🎡 Roulette</a> | 
-        <a href='{$profile}'>👤 Profil</a> | 
+    return "<nav class='fc-nav'>
+        <a href='{$home}'>🏠 Home</a>
+        <a href='{$coinflip}'>🎲 Coinflip</a>
+        <a href='{$slot}'>🎰 Slot</a>
+        <a href='{$roulette}'>🎡 Roulette</a>
+        <a href='{$profile}'>👤 Profil</a>
         <a href='{$leader}'>🏆 Leaderboard</a>
     </nav>";
 });
@@ -146,23 +146,25 @@ add_shortcode('fc_coinflip', function(){
             if(rand(0,1)==1){
                 $coins += 100;
                 $change = +50;
-                $result = "<div style='color:green;font-weight:bold;'>🎉 Gewonnen! +100 Coins</div>";
+                $result = "<div class='fc-result win'>🎉 Gewonnen! +100 Coins</div>";
             } else {
-                $result = "<div style='color:red;font-weight:bold;'>😢 Verloren! -50 Coins</div>";
+                $result = "<div class='fc-result lose'>😢 Verloren! -50 Coins</div>";
             }
             fc_update_coins($uid,$coins);
             fc_add_log($uid,'Coinflip',$change,$coins);
-        } else $result="<div style='color:red'>Nicht genug Coins!</div>";
+        } else $result="<div class='fc-result lose'>Nicht genug Coins!</div>";
     }
     return <<<HTML
-    <h2>Coinflip</h2>
-    <form method='post' onsubmit="document.getElementById('flip-anim').style.display='block'">
-      <button name='fc_coinflip'>Münzwurf (50 Einsatz)</button>
-    </form>
-    <div>Kontostand: {$coins}</div>
-    <div id='flip-anim' style='display:none;font-size:40px;animation:flip 1s linear infinite;'>🪙</div>
-    <style>@keyframes flip{0%{transform:rotateY(0);}100%{transform:rotateY(360deg);}}</style>
-    {$result}
+    <div class='fc-game'>
+      <h2>Coinflip</h2>
+      <form method='post' onsubmit="document.getElementById('flip-anim').style.display='block'">
+        <button class='fc-btn' name='fc_coinflip'>Münzwurf (50 Einsatz)</button>
+      </form>
+      <div class='fc-balance'>Kontostand: {$coins}</div>
+      <div id='flip-anim' class='fc-coin-anim' style='display:none;'>🪙</div>
+      <style>@keyframes flip{0%{transform:rotateY(0);}100%{transform:rotateY(360deg);}} .fc-coin-anim{font-size:40px;animation:flip 1s linear infinite;}</style>
+      {$result}
+    </div>
 HTML;
 });
 
@@ -189,23 +191,25 @@ add_shortcode('fc_slot', function(){
             if($win>0){
                 $coins += $win;
                 $change += $win;
-                $result = "<div style='color:green;font-weight:bold;'>$msg 🎉 Gewinn: +{$win}</div>";
+                $result = "<div class='fc-result win'>{$msg} 🎉 Gewinn: +{$win}</div>";
             } else {
-                $result = "<div style='color:red;font-weight:bold;'>$msg 😢 Kein Gewinn</div>";
+                $result = "<div class='fc-result lose'>{$msg} 😢 Kein Gewinn</div>";
             }
             fc_update_coins($uid,$coins);
             fc_add_log($uid,'Slot',$change,$coins);
-        } else $result="<div style='color:red'>Nicht genug Coins!</div>";
+        } else $result="<div class='fc-result lose'>Nicht genug Coins!</div>";
     }
     return <<<HTML
-    <h2>Slot Machine</h2>
-    <form method='post' onsubmit="document.getElementById('slot-anim').style.display='block'">
-      <button name='fc_slot'>Slot spielen (100 Einsatz)</button>
-    </form>
-    <div>Kontostand: {$coins}</div>
-    <div id='slot-anim' style='display:none;font-size:40px;animation:spin 0.2s linear infinite;'>🍒⭐🍋💎</div>
-    <style>@keyframes spin{0%{letter-spacing:5px;}100%{letter-spacing:-5px;}}</style>
-    {$result}
+    <div class='fc-game'>
+      <h2>Slot Machine</h2>
+      <form method='post' onsubmit="document.getElementById('slot-anim').style.display='block'">
+        <button class='fc-btn' name='fc_slot'>Slot spielen (100 Einsatz)</button>
+      </form>
+      <div class='fc-balance'>Kontostand: {$coins}</div>
+      <div id='slot-anim' class='fc-slot-anim' style='display:none;'>🍒⭐🍋💎</div>
+      <style>@keyframes spin{0%{letter-spacing:5px;}100%{letter-spacing:-5px;}} .fc-slot-anim{font-size:40px;animation:spin 0.2s linear infinite;}</style>
+      {$result}
+    </div>
 HTML;
 });
 
@@ -228,24 +232,26 @@ add_shortcode('fc_roulette', function(){
             if($hitColor==$color){
                 $coins += 200;
                 $change = +100;
-                $result = "<div style='color:green;font-weight:bold;'>🎉 Gewinn! {$msg}</div>";
+                $result = "<div class='fc-result win'>🎉 Gewinn! {$msg}</div>";
             } else {
-                $result = "<div style='color:red;font-weight:bold;'>😢 Verloren! {$msg}</div>";
+                $result = "<div class='fc-result lose'>😢 Verloren! {$msg}</div>";
             }
             fc_update_coins($uid,$coins);
             fc_add_log($uid,'Roulette',$change,$coins);
-        } else $result="<div style='color:red'>Nicht genug Coins!</div>";
+        } else $result="<div class='fc-result lose'>Nicht genug Coins!</div>";
     }
     return <<<HTML
-    <h2>Roulette</h2>
-    <form method='post' onsubmit="document.getElementById('roulette-anim').style.display='block'">
-      <select name='color'><option value='red'>Rot</option><option value='black'>Schwarz</option></select>
-      <button name='fc_roulette' value='1'>Spielen (100 Einsatz)</button>
-    </form>
-    <div>Kontostand: {$coins}</div>
-    <div id='roulette-anim' style='display:none;font-size:20px;animation:roll 0.1s linear infinite;'>0 1 2 3 4 5 ...</div>
-    <style>@keyframes roll{0%{opacity:0.2;}100%{opacity:1;}}</style>
-    {$result}
+    <div class='fc-game'>
+      <h2>Roulette</h2>
+      <form method='post' onsubmit="document.getElementById('roulette-anim').style.display='block'">
+        <select name='color'><option value='red'>Rot</option><option value='black'>Schwarz</option></select>
+        <button class='fc-btn' name='fc_roulette' value='1'>Spielen (100 Einsatz)</button>
+      </form>
+      <div class='fc-balance'>Kontostand: {$coins}</div>
+      <div id='roulette-anim' class='fc-roulette-anim' style='display:none;'>0 1 2 3 4 5 ...</div>
+      <style>@keyframes roll{0%{opacity:0.2;}100%{opacity:1;}} .fc-roulette-anim{font-size:20px;animation:roll 0.1s linear infinite;}</style>
+      {$result}
+    </div>
 HTML;
 });
 
