@@ -19,11 +19,14 @@ document.addEventListener('DOMContentLoaded',function(){
   const fcToggleLink=document.getElementById('fc-auth-toggle-link');
   const confirmField=document.querySelector('input[name="confirm"]');
   const actionField=document.getElementById('fc_auth_action');
-  if(fcToggleLink&&fcTitle&&fcToggleText&&confirmField&&actionField){
+  const authWrapper=document.querySelector('.fc-auth-wrapper');
+  if(fcToggleLink&&fcTitle&&fcToggleText&&confirmField&&actionField&&authWrapper){
     let isLogin=true;
     fcToggleLink.addEventListener('click',function(e){
       e.preventDefault();
       isLogin=!isLogin;
+      authWrapper.classList.add('fc-fade');
+      setTimeout(()=>authWrapper.classList.remove('fc-fade'),300);
       fcTitle.textContent=isLogin?fcTitle.dataset.login:fcTitle.dataset.register;
       fcToggleText.textContent=isLogin?fcToggleText.dataset.login:fcToggleText.dataset.register;
       fcToggleLink.textContent=isLogin?fcToggleLink.dataset.login:fcToggleLink.dataset.register;
