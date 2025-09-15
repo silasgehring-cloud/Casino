@@ -68,7 +68,15 @@ register_activation_hook(__FILE__, function(){
 function fc_get_coins($uid){
     global $wpdb;
     $table = $wpdb->prefix . "fc_users";
-    return intval($wpdb->get_var($wpdb->prepare("SELECT coins FROM $table WHERE user_id=%d",$uid)));
+    $coins = $wpdb->get_var($wpdb->prepare("SELECT coins FROM $table WHERE user_id=%d", $uid));
+    if ($coins === null) {
+        $wpdb->insert($table, [
+            'user_id' => $uid,
+            'coins'   => 1000,
+        ]);
+        $coins = 1000;
+    }
+    return intval($coins);
 }
 function fc_update_coins($uid,$new){
     global $wpdb;
@@ -129,7 +137,7 @@ add_shortcode('fc_coinflip', function(){
             fc_add_log($uid,'Coinflip',$change,$coins);
         } else $result="<div style='color:red'>Nicht genug Coins!</div>";
     }
-    return "
+    return <<<HTML
     <h2>Coinflip</h2>
     <form method='post' onsubmit="document.getElementById('flip-anim').style.display='block'">
       <button name='fc_coinflip'>Münzwurf (50 Einsatz)</button>
@@ -138,7 +146,7 @@ add_shortcode('fc_coinflip', function(){
     <div id='flip-anim' style='display:none;font-size:40px;animation:flip 1s linear infinite;'>🪙</div>
     <style>@keyframes flip{0%{transform:rotateY(0);}100%{transform:rotateY(360deg);}}</style>
     {$result}
-    ";
+HTML;
 });
 
 // ------------------------------
@@ -172,7 +180,7 @@ add_shortcode('fc_slot', function(){
             fc_add_log($uid,'Slot',$change,$coins);
         } else $result="<div style='color:red'>Nicht genug Coins!</div>";
     }
-    return "
+    return <<<HTML
     <h2>Slot Machine</h2>
     <form method='post' onsubmit="document.getElementById('slot-anim').style.display='block'">
       <button name='fc_slot'>Slot spielen (100 Einsatz)</button>
@@ -181,7 +189,7 @@ add_shortcode('fc_slot', function(){
     <div id='slot-anim' style='display:none;font-size:40px;animation:spin 0.2s linear infinite;'>🍒⭐🍋💎</div>
     <style>@keyframes spin{0%{letter-spacing:5px;}100%{letter-spacing:-5px;}}</style>
     {$result}
-    ";
+HTML;
 });
 
 // ------------------------------
@@ -211,7 +219,7 @@ add_shortcode('fc_roulette', function(){
             fc_add_log($uid,'Roulette',$change,$coins);
         } else $result="<div style='color:red'>Nicht genug Coins!</div>";
     }
-    return "
+    return <<<HTML
     <h2>Roulette</h2>
     <form method='post' onsubmit="document.getElementById('roulette-anim').style.display='block'">
       <select name='color'><option value='red'>Rot</option><option value='black'>Schwarz</option></select>
@@ -221,7 +229,7 @@ add_shortcode('fc_roulette', function(){
     <div id='roulette-anim' style='display:none;font-size:20px;animation:roll 0.1s linear infinite;'>0 1 2 3 4 5 ...</div>
     <style>@keyframes roll{0%{opacity:0.2;}100%{opacity:1;}}</style>
     {$result}
-    ";
+HTML;
 });
 
 // ------------------------------
