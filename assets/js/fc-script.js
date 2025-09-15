@@ -20,6 +20,13 @@ document.addEventListener('DOMContentLoaded',function(){
       if(anim) anim.classList.remove('fc-hide');
     });
   }
+  const blackjackForm=document.getElementById('fc-blackjack-form');
+  if(blackjackForm){
+    blackjackForm.addEventListener('submit',function(){
+      const anim=document.getElementById('blackjack-anim');
+      if(anim) anim.classList.remove('fc-hide');
+    });
+  }
   const fcTitle=document.getElementById('fc-auth-title');
   const fcToggleText=document.getElementById('fc-auth-toggle-text');
   const fcToggleLink=document.getElementById('fc-auth-toggle-link');

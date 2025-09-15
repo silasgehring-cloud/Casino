@@ -30,9 +30,10 @@ h1,h2,h3,h4{
   color:var(--text);
   margin-top:0;
 }
-.fc-nav{text-align:center;margin-bottom:30px;}
-.fc-nav a{text-decoration:none;color:var(--text);padding:10px 15px;margin:0 5px;border-radius:6px;transition:background 0.3s,color 0.3s;}
+.fc-nav{display:flex;justify-content:center;gap:10px;margin-bottom:30px;background:var(--card-bg);padding:15px;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.05);}
+.fc-nav a{text-decoration:none;color:var(--text);padding:10px 15px;border-radius:6px;transition:background 0.3s,color 0.3s;}
 .fc-nav a:hover{background:rgba(212,175,55,0.1);color:var(--accent);}
+.fc-nav a.active{background:var(--accent);color:#fff;}
 .fc-btn{background:var(--accent);color:#fff;border:none;padding:10px 20px;border-radius:6px;cursor:pointer;box-shadow:0 2px 6px rgba(0,0,0,0.15);transition:background 0.3s,box-shadow 0.3s;}
 .fc-btn:hover{background:#b9972b;box-shadow:0 4px 10px rgba(0,0,0,0.2);}
 .fc-balance{margin-top:10px;font-weight:600;}
@@ -45,6 +46,8 @@ h1,h2,h3,h4{
 .fc-slot-anim{font-size:40px;animation:spin 0.2s linear infinite;}
 @keyframes roll{0%{opacity:0.2;}100%{opacity:1;}}
 .fc-roulette-anim{font-size:20px;animation:roll 0.1s linear infinite;}
+@keyframes slide{0%{transform:translateY(-10px);opacity:0;}100%{transform:translateY(0);opacity:1;}}
+.fc-blackjack-anim{font-size:40px;animation:slide 0.5s ease forwards;}
 .fc-auth-wrapper{width:320px;margin:40px auto;padding:2.5rem;background:var(--card-bg);border-radius:12px;box-shadow:0 6px 18px rgba(0,0,0,0.08);backdrop-filter:blur(6px);text-align:center;font-family:'Source Sans Pro',sans-serif;}
 .fc-auth-wrapper h1{font-weight:500;font-size:1.4rem;margin-bottom:1.5rem;color:var(--text);font-family:'Playfair Display',serif;}
 .fc-auth-wrapper input{width:100%;margin-bottom:1rem;padding:0.7rem 1rem;border:1px solid rgba(0,0,0,0.1);border-radius:6px;font-size:0.95rem;background:#fff;color:var(--text);}
