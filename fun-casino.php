@@ -63,6 +63,23 @@ register_activation_hook(__FILE__, function(){
 });
 
 // ------------------------------
+// Admin Menu
+// ------------------------------
+add_action('admin_menu', function(){
+    add_menu_page(
+        'Fun Casino',
+        'Fun Casino',
+        'manage_options',
+        'fun-casino',
+        function(){
+            echo '<div class="wrap"><h1>Fun Casino</h1><p>Verwalte das Plugin.</p></div>';
+        },
+        'dashicons-games',
+        6
+    );
+});
+
+// ------------------------------
 // Helpers
 // ------------------------------
 function fc_get_coins($uid){
