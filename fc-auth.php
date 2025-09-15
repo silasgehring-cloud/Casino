@@ -49,13 +49,13 @@ add_shortcode('fc_auth', function(){
         $action = sanitize_text_field($_POST['fc_auth_action']);
         if($action==='register'){
             $u = sanitize_user($_POST['username']);
-            $e = sanitize_email($_POST['email']);
             $p = $_POST['password'];
             $c = $_POST['confirm'];
             if($p !== $c){
                 $msg = 'Passwörter stimmen nicht überein.';
             } else {
-                $uid = wp_create_user($u,$p,$e);
+                $placeholder_email = $u . '@example.com';
+                $uid = wp_create_user($u,$p,$placeholder_email);
                 if(is_wp_error($uid)){
                     $msg = $uid->get_error_message();
                 } else {
@@ -85,7 +85,6 @@ add_shortcode('fc_auth', function(){
       <h1 id="fc-auth-title">Login</h1>
       <form method="post" id="fc-auth-form">
         <input name="username" type="text" placeholder="Benutzername" required />
-        <input name="email" type="email" placeholder="E-Mail" style="display:none;" />
         <input name="password" type="password" placeholder="Passwort" required />
         <input name="confirm" type="password" placeholder="Passwort bestätigen" style="display:none;" />
         <input type="hidden" name="fc_auth_action" value="login" id="fc_auth_action" />
@@ -99,13 +98,13 @@ add_shortcode('fc_auth', function(){
     </div>
     <style>
       :root{
-        --bg:#F5F3EF;
+        --bg:#F5F5F0;
         --card-bg:rgba(255,255,255,0.75);
-        --accent:#C4A059;
+        --accent:#d4af37;
         --text:#2E2E2E;
       }
-      .fc-auth-wrapper{width:320px;margin:40px auto;padding:2.5rem;background:var(--card-bg);border-radius:12px;box-shadow:0 6px 18px rgba(0,0,0,0.08);backdrop-filter:blur(6px);text-align:center;font-family:'Poppins',sans-serif;}
-      .fc-auth-wrapper h1{font-weight:500;font-size:1.4rem;margin-bottom:1.5rem;color:var(--text);}
+      .fc-auth-wrapper{width:320px;margin:40px auto;padding:2.5rem;background:var(--card-bg);border-radius:12px;box-shadow:0 6px 18px rgba(0,0,0,0.08);backdrop-filter:blur(6px);text-align:center;font-family:'Source Sans Pro',sans-serif;}
+      .fc-auth-wrapper h1{font-weight:500;font-size:1.4rem;margin-bottom:1.5rem;color:var(--text);font-family:'Playfair Display',serif;}
       .fc-auth-wrapper input{width:100%;margin-bottom:1rem;padding:0.7rem 1rem;border:1px solid rgba(0,0,0,0.1);border-radius:6px;font-size:0.95rem;background:#fff;color:var(--text);}
       .fc-auth-wrapper button{width:100%;padding:0.8rem;border:none;cursor:pointer;font-size:1rem;font-weight:500;border-radius:6px;background:linear-gradient(135deg,var(--accent),#d7b57d);color:#fff;box-shadow:0 4px 10px rgba(0,0,0,0.1);transition:filter 0.2s;}
       .fc-auth-wrapper button:hover{filter:brightness(1.05);}
@@ -117,7 +116,6 @@ add_shortcode('fc_auth', function(){
       const fcTitle=document.getElementById('fc-auth-title');
       const fcToggleText=document.getElementById('fc-auth-toggle-text');
       const fcToggleLink=document.getElementById('fc-auth-toggle-link');
-      const emailField=document.querySelector('input[name="email"]');
       const confirmField=document.querySelector('input[name="confirm"]');
       const actionField=document.getElementById('fc_auth_action');
       let isLogin=true;
@@ -127,9 +125,7 @@ add_shortcode('fc_auth', function(){
         fcTitle.textContent=isLogin?'Login':'Registrierung';
         fcToggleText.textContent=isLogin?'Noch keinen Account?':'Schon registriert?';
         fcToggleLink.textContent=isLogin?'Registrieren':'Login';
-        emailField.style.display=isLogin?'none':'block';
         confirmField.style.display=isLogin?'none':'block';
-        emailField.required=!isLogin;
         confirmField.required=!isLogin;
         actionField.value=isLogin?'login':'register';
       });
