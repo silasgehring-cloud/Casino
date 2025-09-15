@@ -10,6 +10,7 @@ $pages = [
     __('Casino Coinflip', 'fun-casino'),
     __('Casino Slot', 'fun-casino'),
     __('Casino Roulette', 'fun-casino'),
+    __('Casino Blackjack', 'fun-casino'),
     __('Casino Profile', 'fun-casino'),
     __('Casino Leaderboard', 'fun-casino'),
 ];

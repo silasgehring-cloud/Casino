@@ -1,0 +1,353 @@
+# Copyright (C) 2025 Silas
+# This file is distributed under the same license as the FC Auth plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: FC Auth 1.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/Casino\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2025-09-15T14:17:49+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: fun-casino\n"
+
+#. Plugin Name of the plugin
+#: fc-auth.php
+msgid "FC Auth"
+msgstr ""
+
+#. Description of the plugin
+#: fc-auth.php
+msgid "Minimalistisches Login- und Registrierungsformular im Fun-Casino-Stil."
+msgstr ""
+
+#. Author of the plugin
+#: fc-auth.php
+msgid "Silas"
+msgstr ""
+
+#: fc-auth.php:40
+msgid "Casino Login"
+msgstr ""
+
+#: fc-auth.php:67
+msgid "Passwörter stimmen nicht überein."
+msgstr ""
+
+#: fc-auth.php:75
+msgid "Registrierung erfolgreich. Du bist eingeloggt."
+msgstr ""
+
+#: fc-auth.php:88
+msgid "Login erfolgreich."
+msgstr ""
+
+#: fc-auth.php:97
+#: fc-auth.php:108
+msgid "Login"
+msgstr ""
+
+#: fc-auth.php:97
+msgid "Registrierung"
+msgstr ""
+
+#: fc-auth.php:99
+msgid "Benutzername"
+msgstr ""
+
+#: fc-auth.php:100
+msgid "Passwort"
+msgstr ""
+
+#: fc-auth.php:101
+msgid "Passwort bestätigen"
+msgstr ""
+
+#: fc-auth.php:104
+msgid "Los geht’s"
+msgstr ""
+
+#: fc-auth.php:107
+msgid "Noch keinen Account?"
+msgstr ""
+
+#: fc-auth.php:107
+msgid "Schon registriert?"
+msgstr ""
+
+#: fc-auth.php:108
+msgid "Registrieren"
+msgstr ""
+
+#: fc-template.php:10
+#: fun-casino.php:72
+#: fun-casino.php:101
+#: fun-casino.php:102
+#: fun-casino.php:106
+msgid "Fun Casino"
+msgstr ""
+
+#: fun-casino.php:72
+#: uninstall.php:9
+msgid "Casino Home"
+msgstr ""
+
+#: fun-casino.php:72
+msgid "Wähle ein Spiel:"
+msgstr ""
+
+#: fun-casino.php:73
+#: uninstall.php:10
+msgid "Casino Coinflip"
+msgstr ""
+
+#: fun-casino.php:74
+#: uninstall.php:11
+msgid "Casino Slot"
+msgstr ""
+
+#: fun-casino.php:75
+#: uninstall.php:12
+msgid "Casino Roulette"
+msgstr ""
+
+#: fun-casino.php:76
+#: uninstall.php:13
+msgid "Casino Blackjack"
+msgstr ""
+
+#: fun-casino.php:77
+#: uninstall.php:14
+msgid "Casino Profile"
+msgstr ""
+
+#: fun-casino.php:78
+#: uninstall.php:15
+msgid "Casino Leaderboard"
+msgstr ""
+
+#: fun-casino.php:106
+msgid "Verwalte das Plugin."
+msgstr ""
+
+#: fun-casino.php:113
+#: fun-casino.php:114
+#: fun-casino.php:134
+msgid "Logs"
+msgstr ""
+
+#: fun-casino.php:136
+msgid "User ID"
+msgstr ""
+
+#: fun-casino.php:137
+#: fun-casino.php:139
+msgid "Spiel"
+msgstr ""
+
+#: fun-casino.php:138
+msgid "Filter"
+msgstr ""
+
+#: fun-casino.php:139
+msgid "User"
+msgstr ""
+
+#: fun-casino.php:139
+msgid "Änderung"
+msgstr ""
+
+#: fun-casino.php:139
+msgid "Kontostand"
+msgstr ""
+
+#: fun-casino.php:139
+msgid "Zeit"
+msgstr ""
+
+#: fun-casino.php:144
+msgid "Keine Einträge"
+msgstr ""
+
+#: fun-casino.php:183
+#: fun-casino.php:235
+#: fun-casino.php:277
+#: fun-casino.php:327
+#: fun-casino.php:376
+#: fun-casino.php:439
+msgid "Bitte einloggen."
+msgstr ""
+
+#: fun-casino.php:198
+msgid "Daily Bonus"
+msgstr ""
+
+#: fun-casino.php:199
+msgid "Bonus erhalten! +100 Coins"
+msgstr ""
+
+#: fun-casino.php:201
+msgid "Bonus bereits heute erhalten."
+msgstr ""
+
+#: fun-casino.php:206
+msgid "Täglicher Bonus"
+msgstr ""
+
+#: fun-casino.php:206
+#: fun-casino.php:267
+#: fun-casino.php:317
+#: fun-casino.php:366
+#: fun-casino.php:414
+msgid "Kontostand:"
+msgstr ""
+
+#: fun-casino.php:214
+msgid "Home"
+msgstr ""
+
+#: fun-casino.php:215
+#: fun-casino.php:252
+#: fun-casino.php:262
+msgid "Coinflip"
+msgstr ""
+
+#: fun-casino.php:216
+#: fun-casino.php:302
+msgid "Slot"
+msgstr ""
+
+#: fun-casino.php:217
+#: fun-casino.php:350
+#: fun-casino.php:360
+msgid "Roulette"
+msgstr ""
+
+#: fun-casino.php:218
+#: fun-casino.php:399
+#: fun-casino.php:409
+msgid "Blackjack"
+msgstr ""
+
+#: fun-casino.php:219
+msgid "Profil"
+msgstr ""
+
+#: fun-casino.php:220
+#: fun-casino.php:427
+msgid "Leaderboard"
+msgstr ""
+
+#: fun-casino.php:247
+msgid "Gewonnen! +100 Coins"
+msgstr ""
+
+#: fun-casino.php:249
+msgid "Verloren! -50 Coins"
+msgstr ""
+
+#: fun-casino.php:254
+#: fun-casino.php:304
+#: fun-casino.php:352
+#: fun-casino.php:401
+msgid "Nicht genug Coins!"
+msgstr ""
+
+#: fun-casino.php:257
+#: fun-casino.php:307
+#: fun-casino.php:355
+#: fun-casino.php:404
+msgid "Ungültige Anfrage."
+msgstr ""
+
+#: fun-casino.php:264
+msgid "Münzwurf (50 Einsatz)"
+msgstr ""
+
+#: fun-casino.php:297
+msgid "Gewinn:"
+msgstr ""
+
+#: fun-casino.php:299
+msgid "Kein Gewinn"
+msgstr ""
+
+#: fun-casino.php:312
+msgid "Slot Machine"
+msgstr ""
+
+#: fun-casino.php:314
+msgid "Slot spielen (100 Einsatz)"
+msgstr ""
+
+#: fun-casino.php:338
+#: fun-casino.php:340
+msgid "rot"
+msgstr ""
+
+#: fun-casino.php:338
+#: fun-casino.php:340
+msgid "schwarz"
+msgstr ""
+
+#: fun-casino.php:341
+msgid "Zahl"
+msgstr ""
+
+#: fun-casino.php:345
+msgid "Gewinn!"
+msgstr ""
+
+#: fun-casino.php:347
+#: fun-casino.php:388
+msgid "Verloren!"
+msgstr ""
+
+#: fun-casino.php:362
+msgid "Rot"
+msgstr ""
+
+#: fun-casino.php:362
+msgid "Schwarz"
+msgstr ""
+
+#: fun-casino.php:363
+msgid "Spielen (100 Einsatz)"
+msgstr ""
+
+#: fun-casino.php:392
+msgid "Gewonnen!"
+msgstr ""
+
+#: fun-casino.php:396
+msgid "Unentschieden"
+msgstr ""
+
+#: fun-casino.php:411
+msgid "Blackjack spielen (100 Einsatz)"
+msgstr ""
+
+#. translators: %d: user ID
+#: fun-casino.php:431
+#, php-format
+msgid "User %d"
+msgstr ""
+
+#: fun-casino.php:432
+msgid "Coins"
+msgstr ""
+
+#: fun-casino.php:445
+msgid "Mein Profil"
+msgstr ""
+
+#: fun-casino.php:445
+msgid "Coins:"
+msgstr ""
+
+#: fun-casino.php:445
+msgid "Letzte Aktionen"
+msgstr ""
