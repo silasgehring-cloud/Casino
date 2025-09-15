@@ -12,11 +12,17 @@ Template Name: Fun Casino Blank
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet" />
 <style>
+    :root {
+        --bg-start: #f5f5f0;
+        --bg-end: #e8e1d5;
+        --accent: #d4af37;
+        --text: #2c2c2c;
+    }
     body {
         margin: 0;
         font-family: 'Source Sans Pro', sans-serif;
-        background: linear-gradient(135deg, #f5f5f0, #e8e1d5);
-        color: #333;
+        background: linear-gradient(135deg, var(--bg-start), var(--bg-end));
+        color: var(--text);
         display: flex;
         justify-content: center;
         align-items: flex-start;
@@ -33,7 +39,7 @@ Template Name: Fun Casino Blank
     }
     h1, h2, h3, h4 {
         font-family: 'Playfair Display', serif;
-        color: #2c2c2c;
+        color: var(--text);
         margin-top: 0;
     }
     .fc-nav {
@@ -42,7 +48,7 @@ Template Name: Fun Casino Blank
     }
     .fc-nav a {
         text-decoration: none;
-        color: #2c2c2c;
+        color: var(--text);
         padding: 10px 15px;
         margin: 0 5px;
         border-radius: 6px;
@@ -50,10 +56,10 @@ Template Name: Fun Casino Blank
     }
     .fc-nav a:hover {
         background: rgba(212, 175, 55, 0.1);
-        color: #d4af37;
+        color: var(--accent);
     }
     .fc-btn {
-        background: #d4af37;
+        background: var(--accent);
         color: #fff;
         border: none;
         padding: 10px 20px;
