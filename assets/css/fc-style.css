@@ -40,14 +40,14 @@ h1,h2,h3,h4{
 .fc-result{margin-top:20px;font-weight:600;}
 .fc-result.win{color:#3b7d3e;}
 .fc-result.lose{color:#b23e3e;}
-@keyframes flip{0%{transform:rotateY(0);}100%{transform:rotateY(360deg);}}
-.fc-coin-anim{font-size:40px;animation:flip 1s linear infinite;}
-@keyframes spin{0%{letter-spacing:5px;}100%{letter-spacing:-5px;}}
-.fc-slot-anim{font-size:40px;animation:spin 0.2s linear infinite;}
-@keyframes roll{0%{opacity:0.2;}100%{opacity:1;}}
-.fc-roulette-anim{font-size:20px;animation:roll 0.1s linear infinite;}
-@keyframes slide{0%{transform:translateY(-10px);opacity:0;}100%{transform:translateY(0);opacity:1;}}
-.fc-blackjack-anim{font-size:40px;animation:slide 0.5s ease forwards;}
+@keyframes flip{0%{transform:rotateY(0);}50%{transform:rotateY(180deg);}100%{transform:rotateY(360deg);}}
+.fc-coin-anim{font-size:40px;animation:flip 2s cubic-bezier(.4,0,.2,1) infinite;}
+@keyframes spin{0%{letter-spacing:5px;}50%{letter-spacing:0;}100%{letter-spacing:-5px;}}
+.fc-slot-anim{font-size:40px;animation:spin 1s ease-in-out infinite;}
+@keyframes roll{0%{opacity:0.2;transform:rotate(0);}100%{opacity:1;transform:rotate(360deg);}}
+.fc-roulette-anim{font-size:20px;animation:roll 1s linear infinite;}
+@keyframes slide{0%{transform:translateY(-20px);opacity:0;}50%{transform:translateY(10px);opacity:0.7;}100%{transform:translateY(0);opacity:1;}}
+.fc-blackjack-anim{font-size:40px;animation:slide 1.2s ease forwards;}
 .fc-auth-wrapper{width:320px;margin:40px auto;padding:2.5rem;background:var(--card-bg);border-radius:12px;box-shadow:0 6px 18px rgba(0,0,0,0.08);backdrop-filter:blur(6px);text-align:center;font-family:'Source Sans Pro',sans-serif;}
 .fc-auth-wrapper h1{font-weight:500;font-size:1.4rem;margin-bottom:1.5rem;color:var(--text);font-family:'Playfair Display',serif;}
 .fc-auth-wrapper input{width:100%;margin-bottom:1rem;padding:0.7rem 1rem;border:1px solid rgba(0,0,0,0.1);border-radius:6px;font-size:0.95rem;background:#fff;color:var(--text);}
