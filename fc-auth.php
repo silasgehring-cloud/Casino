@@ -9,6 +9,20 @@ Author: Silas
 if ( ! defined('ABSPATH') ) exit;
 
 // --------------------------------
+// Lade fc-template.php aus Plugin-Verzeichnis
+// --------------------------------
+add_filter('template_include', function($template){
+    if (is_page()) {
+        $slug = get_page_template_slug(get_queried_object_id());
+        if ($slug === 'fc-template.php') {
+            $file = plugin_dir_path(__FILE__) . 'fc-template.php';
+            if (file_exists($file)) return $file;
+        }
+    }
+    return $template;
+});
+
+// --------------------------------
 // Aktivierung: Login-Seite anlegen
 // --------------------------------
 register_activation_hook(__FILE__, function(){
