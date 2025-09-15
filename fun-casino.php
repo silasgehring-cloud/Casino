@@ -261,7 +261,7 @@ add_shortcode('fc_coinflip', function(){
     return "<div class='fc-game'>
       <h2>" . esc_html__('Coinflip', 'fun-casino') . "</h2>
       <form method='post' id='fc-coinflip-form'>
-        <button class='fc-btn' name='fc_coinflip'>" . esc_html__('Münzwurf (50 Einsatz)', 'fun-casino') . "</button>
+        <button class='fc-btn' name='fc_coinflip' value='1'>" . esc_html__('Münzwurf (50 Einsatz)', 'fun-casino') . "</button>
         {$nonce}
       </form>
       <div class='fc-balance'>" . esc_html__('Kontostand:', 'fun-casino') . " {$coins}</div>
@@ -311,7 +311,7 @@ add_shortcode('fc_slot', function(){
     return "<div class='fc-game'>
       <h2>" . esc_html__('Slot Machine', 'fun-casino') . "</h2>
       <form method='post' id='fc-slot-form'>
-        <button class='fc-btn' name='fc_slot'>" . esc_html__('Slot spielen (100 Einsatz)', 'fun-casino') . "</button>
+        <button class='fc-btn' name='fc_slot' value='1'>" . esc_html__('Slot spielen (100 Einsatz)', 'fun-casino') . "</button>
         {$nonce}
       </form>
       <div class='fc-balance'>" . esc_html__('Kontostand:', 'fun-casino') . " {$coins}</div>
@@ -408,7 +408,7 @@ add_shortcode('fc_blackjack', function(){
     return "<div class='fc-game'>
       <h2>" . esc_html__('Blackjack', 'fun-casino') . "</h2>
       <form method='post' id='fc-blackjack-form'>
-        <button class='fc-btn' name='fc_blackjack'>" . esc_html__('Blackjack spielen (100 Einsatz)', 'fun-casino') . "</button>
+        <button class='fc-btn' name='fc_blackjack' value='1'>" . esc_html__('Blackjack spielen (100 Einsatz)', 'fun-casino') . "</button>
         {$nonce}
       </form>
       <div class='fc-balance'>" . esc_html__('Kontostand:', 'fun-casino') . " {$coins}</div>
